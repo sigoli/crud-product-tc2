@@ -1,0 +1,12 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Produtos</a>
+    <div class="navbar">
+      <div class="navbar-nav">
+        <a class="nav-link" [routerLink]="['/all']" routerLinkActive="active" >Todos os Produtos</a>
+        <a class="nav-link" [routerLink]="['/new']" routerLinkActive="active">Novo Produto</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>

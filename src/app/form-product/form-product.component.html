@@ -1,0 +1,32 @@
+<div class="d-flex flex-column align-items-center mt-5">
+  <div class="col-10 d-flex flex-column justify-content-between align-items-center mb-5">
+    <h3 class="mb-3">Novo Produto</h3>
+    <form [formGroup]="productForm">
+      <p class="error" *ngIf="error">Erro ao salvar produto. Tente novamente.</p>
+      <div class="mb-3">
+        <label class="form-label">Titulo</label>
+        <input type="text" class="form-control" formControlName="titulo">
+        <app-input-validation [control]="productForm.get('titulo')"></app-input-validation>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Descrição</label>
+        <input type="text" class="form-control" formControlName="descricao">
+        <app-input-validation [control]="productForm.get('descricao')"></app-input-validation>
+
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Valor</label>
+        <div class="input-group mb-3">
+          <span class="input-group-text">R$</span>
+          <input type="number" class="form-control" formControlName="preco">
+        </div>
+        <app-input-validation [control]="productForm.get('preco')"></app-input-validation>
+      </div>
+      <div class="row m-0 mt-5 d-flex justify-content-between">
+        <button class="btn btn-danger col-4" *ngIf="editMode" (click)="deleteProduct()">Excluir</button>
+        <button class="btn btn-primary" [class]="editMode? 'col-6': 'col-12'" (click)="saveProduct()">Salvar</button>
+      </div>
+    </form>
+
+  </div>
+</div>
