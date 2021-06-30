@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 import { ListProductsComponent } from './list-products/list-products.component';
 import { FormProductComponent } from './form-product/form-product.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListProductsComponent,
-    FormProductComponent
+    FormProductComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +23,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     FormsModule,
     InputValidationModule,
-    CommonModule
+    CommonModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
