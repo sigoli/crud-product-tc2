@@ -10,11 +10,11 @@ const routes: Routes = [
   },
   // {
   //   path: 'edit/:id'
-  // }, 
+  // },
   {
     path: 'all',
     component: ListProductsComponent
-  }, 
+  },
   {
     path: '',
     redirectTo: 'all',

@@ -5,30 +5,39 @@ import { environment } from 'src/environments/environment';
 import { IProduct } from 'src/interfaces/product.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductService {
-
-  constructor(private readonly http: HttpClient) { }
+  constructor(private readonly http: HttpClient) {}
 
   getAll(): Observable<IProduct[]> {
-    return this.http.get<IProduct[]>(`${environment.baseUrl}/`);
+    return this.http.get<IProduct[]>(`${environment.baseUrl}/api/produtos`);
   }
 
   getOne(id: number): Observable<IProduct> {
-    return this.http.get<IProduct>(`${environment.baseUrl}/`);
+    return this.http.get<IProduct>(`${environment.baseUrl}/api/produtos/${id}`);
   }
 
   create(product: IProduct): Observable<IProduct> {
-    return this.http.post<IProduct>(`${environment.baseUrl}/`, product);
+    return this.http.post<IProduct>(`${environment.baseUrl}/api/produtos/`, {
+      titulo: product.titulo,
+      descricao: product.descricao,
+      preco: product.preco,
+    });
   }
 
-  edit(product: IProduct): Observable<IProduct> {
-    return this.http.post<IProduct>(`${environment.baseUrl}/`, product);
+  update(product: IProduct): Observable<IProduct> {
+    return this.http.post<IProduct>(
+      `${environment.baseUrl}/api/produtos/${product.id}`,
+      {
+        titulo: product.titulo,
+        descricao: product.descricao,
+        preco: product.preco,
+      }
+    );
   }
 
   delete(id: number): Observable<any> {
-    return this.http.delete(`${environment.baseUrl}/`);
+    return this.http.delete(`${environment.baseUrl}/api/produtos/${id}`);
   }
-
 }

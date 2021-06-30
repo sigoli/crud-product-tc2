@@ -1,8 +1,8 @@
 <div class="d-flex flex-column align-items-center mt-5">
   <div class="col-10 d-flex flex-column justify-content-between align-items-center mb-5">
-    <h3 class="mb-3">Novo Produto</h3>
+    <h3 class="mb-3">{{editMode? 'Editar Produto' : 'Novo Produto'}}</h3>
     <form [formGroup]="productForm">
-      <p class="error" *ngIf="error">Erro ao salvar produto. Tente novamente.</p>
+      <p class="error" *ngIf="error">Erro ao processar a requisição. Tente novamente.</p>
       <div class="mb-3">
         <label class="form-label">Titulo</label>
         <input type="text" class="form-control" formControlName="titulo">
@@ -24,7 +24,7 @@
       </div>
       <div class="row m-0 mt-5 d-flex justify-content-between">
         <button class="btn btn-danger col-4" *ngIf="editMode" (click)="deleteProduct()">Excluir</button>
-        <button class="btn btn-primary" [class]="editMode? 'col-6': 'col-12'" (click)="saveProduct()">Salvar</button>
+        <button class="btn btn-primary" [class]="editMode? 'col-6': 'col-12'" (click)="editMode? updateProduct() : saveProduct()">Salvar</button>
       </div>
     </form>
 
