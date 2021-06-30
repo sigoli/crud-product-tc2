@@ -14,7 +14,7 @@ export class ProductService {
     return this.http.get<IProduct[]>(`${environment.baseUrl}/api/produtos`);
   }
 
-  getOne(id: number): Observable<IProduct> {
+  getOne(id: string): Observable<IProduct> {
     return this.http.get<IProduct>(`${environment.baseUrl}/api/produtos/${id}`);
   }
 
@@ -27,8 +27,8 @@ export class ProductService {
   }
 
   update(product: IProduct): Observable<IProduct> {
-    return this.http.post<IProduct>(
-      `${environment.baseUrl}/api/produtos/${product.id}`,
+    return this.http.put<IProduct>(
+      `${environment.baseUrl}/api/produtos/${product._id}`,
       {
         titulo: product.titulo,
         descricao: product.descricao,
@@ -37,7 +37,7 @@ export class ProductService {
     );
   }
 
-  delete(id: number): Observable<any> {
+  delete(id: string): Observable<any> {
     return this.http.delete(`${environment.baseUrl}/api/produtos/${id}`);
   }
 }

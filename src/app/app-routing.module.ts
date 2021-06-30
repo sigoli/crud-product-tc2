@@ -8,9 +8,10 @@ const routes: Routes = [
     path: 'new',
     component: FormProductComponent
   },
-  // {
-  //   path: 'edit/:id'
-  // },
+  {
+    path: 'edit',
+    component: FormProductComponent
+  },
   {
     path: 'all',
     component: ListProductsComponent

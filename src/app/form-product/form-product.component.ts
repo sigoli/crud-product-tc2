@@ -21,7 +21,7 @@ export class FormProductComponent implements OnInit {
     private route: ActivatedRoute
   ) {
     this.productForm = this.formBuilder.group({
-      id: [null],
+      _id: [null],
       titulo: [null, [Validators.required]],
       descricao: [null, [Validators.required]],
       preco: [null, [Validators.required]],
@@ -35,10 +35,10 @@ export class FormProductComponent implements OnInit {
     });
   }
 
-  setEditMode(id: number): void {
+  setEditMode(id: string): void {
     this.productService.getOne(id).subscribe(
       (response) => {
-        this.productForm.get('id').setValue(response.id);
+        this.productForm.get('_id').setValue(response._id);
         this.productForm.get('titulo').setValue(response.titulo);
         this.productForm.get('descricao').setValue(response.descricao);
         this.productForm.get('preco').setValue(response.preco);
@@ -53,7 +53,7 @@ export class FormProductComponent implements OnInit {
   ngOnInit(): void {}
 
   deleteProduct(): void {
-    this.productService.delete(this.productForm.get('id').value).subscribe(
+    this.productService.delete(this.productForm.get('_id').value).subscribe(
       (response) => {
         this.router.navigate(['/all']);
       },

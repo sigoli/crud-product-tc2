@@ -11,12 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ListProductsComponent,
-    FormProductComponent,
-    ProductComponent
-  ],
+  declarations: [AppComponent, ListProductsComponent, FormProductComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -24,9 +19,9 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     InputValidationModule,
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

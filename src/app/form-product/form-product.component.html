@@ -24,7 +24,7 @@
       </div>
       <div class="row m-0 mt-5 d-flex justify-content-between">
         <button class="btn btn-danger col-4" *ngIf="editMode" (click)="deleteProduct()">Excluir</button>
-        <button class="btn btn-primary" [class]="editMode? 'col-6': 'col-12'" (click)="editMode? updateProduct() : saveProduct()">Salvar</button>
+        <button class="btn btn-primary" [class]="editMode? 'col-6': 'col-12'" (click)="editMode? updateProduct() : createProduct()">Salvar</button>
       </div>
     </form>
 
